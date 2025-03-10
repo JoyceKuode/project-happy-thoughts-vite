@@ -18,7 +18,7 @@ export const App = (): JSX.Element => {
   useEffect(() => {
     const fetchThoughts = async (): Promise<void> => {
       try {
-        const response = await fetch(URL);
+        const response = await fetch(URL + "thoughts");
         const result: Thought[] = await response.json();
         setThoughts(result); // Sets the array of 20 latest thoughts
       } catch (error) {
@@ -35,10 +35,10 @@ export const App = (): JSX.Element => {
 
   // Like a thought
   const handleLike = async (thoughtId: string): Promise<void> => {
-    const likeURL = `${URL}/${thoughtId}/like`;
+    const likeURL = `${URL}thoughts/${thoughtId}/like`;
     try {
       const response = await fetch(likeURL, {
-        method: "POST",
+        method: "PATCH",
       });
       if (response.ok) {
         // Update hearts count for liked thought
