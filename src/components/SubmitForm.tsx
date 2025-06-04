@@ -18,7 +18,7 @@ export const SubmitForm = ({ onSubmit }: SubmitFormProps): JSX.Element => {
   ): Promise<void> => {
     event.preventDefault();
 
-    const URL = "https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts";
+    const URL = "https://project-happy-thoughts-api-ph1w.onrender.com/thoughts";
 
     // Validate message length
     if (thought.length < 5 || thought.length > 140) {
