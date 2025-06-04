@@ -34,8 +34,9 @@ export const SubmitForm = ({ onSubmit }: SubmitFormProps): JSX.Element => {
         },
         body: JSON.stringify({ message: thought }),
       });
-      const newThought = await res.json();
-      onSubmit(newThought); // Passes new thought to App.jsx
+      const { response } = await res.json(); // only take the actual thought object
+      onSubmit(response); // pass the real thought to App
+      // Reset the form state
       setThought(""); // Clears input field
       setError(""); // Clears any previous errors
     } catch (error) {
